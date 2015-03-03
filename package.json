@@ -1,0 +1,23 @@
+{
+  "name": "angle",
+  "version": "1.0.0",
+  "description": "angular-esque mini toolset for managing JS behaviours on non SPA pages ",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine-node **/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PatrickWolleb/angle.git"
+  },
+  "keywords": [
+    "angular",
+    "mini"
+  ],
+  "author": "Patrick Wolleb patrick.wolleb@shmedia.co.uk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PatrickWolleb/angle/issues"
+  },
+  "homepage": "https://github.com/PatrickWolleb/angle"
+}

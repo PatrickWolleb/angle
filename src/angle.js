@@ -3,9 +3,23 @@
 */
 
 
-(function(ns) {
+(function (root, factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(['exports', 'b'], factory);
+    } else if (typeof exports === 'object') {
+        // CommonJS
+        factory(exports, require('b'));
+    } else {
+        // Browser globals
+        factory((root.commonJsStrict = {}), root.b);
+    }
+}(this, function (exports, b) {
+    
 
-	// Extract function argument names for dependency injection
+    // attach properties to the exports object to define
+    // the exported module properties.
+    // Extract function argument names for dependency injection
 	var STRIP_COMMENTS = /((\/\/.*$)|(\/\*[\s\S]*?\*\/))/mg;
 	var ARGUMENT_NAMES = /([^\s,]+)/g;
 	function getParamNames(func) {
@@ -17,7 +31,7 @@
 	  return result;
 	}
 
-	ns.angle = (function() {
+	exports.angle = (function() {
 
 		var _components = {};
 		var _runs;
@@ -133,5 +147,4 @@
 		return API;
 
 	})();
-
-})(window);
+}));
