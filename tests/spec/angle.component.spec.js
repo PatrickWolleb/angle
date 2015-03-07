@@ -35,12 +35,10 @@ describe('angle', function() {
 
 
 		it('should throw error if component already defined' , function() {
-			
 			angle.component({
 				selector : selector,
 				link : function() {}
 			})		
-
 			expect(function() {
 				angle.component({
 					selector : selector,
@@ -48,9 +46,6 @@ describe('angle', function() {
 				});
 			}).toThrow(new Error('Angle :: Component ' + selector + ' already defined'));
 		});
-
-
-
 	});
 
 });
