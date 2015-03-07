@@ -4,6 +4,9 @@
 
 
 (function (root, factory) {
+
+
+
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
         define(['exports', 'b'], factory);
@@ -11,8 +14,9 @@
         // CommonJS
         factory(exports, require('b'));
     } else {
+
         // Browser globals
-        factory((root.commonJsStrict = {}), root.b);
+        factory(root, root.b);
     }
 }(this, function (exports, b) {
     
@@ -29,10 +33,9 @@
 	 		result = [];
 	  }
 	  return result;
-	}
+	}	
 
 	exports.angle = (function() {
-
 		var _components = {};
 		var _runs;
 		var _injector = (function() {
@@ -44,9 +47,12 @@
 				get : function(key) {
 					var obj = _pool[key];
 					if(!obj) {
-						throw new Error('angle error - mssing dependency: ' + key )
+						throw new Error('Angle :: Mssing dependency: ' + key )
 					}
 					return obj;
+				},
+				purge : function() {
+					_pool = {};
 				}
 			}
 		})()
@@ -81,10 +87,27 @@
 
 		var API = {
 
+			getComponents : function() {
+				return _components;
+			},
+
+			purge : function( ) {
+				_injector.purge();
+				_components = {};
+			},
+
 			component : function(definition) {
+
+				if(!definition.selector) {
+					throw new Error('Angle :: Component needs selector property');
+				}
+
+				if(!definition.link) {
+					throw new Error('Angle :: Component needs link method');
+				}
 				var id = ('_'+definition.selector);
 				if(_components[id]) {
-					throw new Error('component ' + definition.selector + ' already defined');
+					throw new Error('Angle :: Component ' + definition.selector + ' already defined');
 				}
 				_components[id] = definition;
 			},
