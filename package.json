@@ -4,7 +4,7 @@
   "description": "angular-esque mini toolset for managing JS behaviours on non SPA pages ",
   "main": "index.js",
   "scripts": {
-    "test": "jasmine-node **/*.test.js"
+    "test": "./node_modules/karma/bin/karma start"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/PatrickWolleb/angle/issues"
   },
-  "homepage": "https://github.com/PatrickWolleb/angle"
+  "homepage": "https://github.com/PatrickWolleb/angle",
+  "devDependencies": {
+    "jasmine-core": "^2.2.0",
+    "karma": "^0.12.31",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-jasmine": "^0.3.5"
+  }
 }
