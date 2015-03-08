@@ -82,6 +82,15 @@ describe('Module', function() {
 				});
 			}).toThrow(new Error('Module :: component - ' + selector + ' already defined'));
 		});
+
+
+		it('should be chainable', function() {
+			var module = app.component({
+				selector : 'test' + Math.random(),
+				link : function() {}
+			});
+			expect(module instanceof Module).toBe(true);
+		});
 	});
 
 
@@ -92,6 +101,10 @@ describe('Module', function() {
 			var singleton = { test : 'test' };
 			app.inject('test' , singleton);
 			expect(app._injector.get('test')).toBe(singleton);
+		});
+
+		it('should be chainable', function() {
+			expect(app.inject('hello', 'world') instanceof Module).toBe(true);
 		});
 
 	});
@@ -206,6 +219,11 @@ describe('Module', function() {
 		});
 
 
+		it('should be chainable', function() {
+			var module = app.bootstrap();
+			expect(module instanceof Module).toBe(true);
+		});
+
 	});
 	
 
@@ -237,8 +255,11 @@ describe('Module', function() {
 			expect(runner.f2.calls.count()).toBe(1);
 		});
 
-	});
+		it('should be chainable', function() {
+			expect( app.run(function() {}) instanceof Module ).toBe(true);
+		});
 
+	});
 
 
 });

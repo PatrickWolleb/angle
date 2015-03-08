@@ -18,12 +18,10 @@ var angle = (function() {
 	};
 
 	var autoBoot = window.ANGLE_AUTO_BOOT || true;
-
 	if(autoBoot) {
 		window.addEventListener('load', API.boot);			
 	}
 	
-
 	return API
 	
 })();

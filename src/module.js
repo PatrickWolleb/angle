@@ -53,10 +53,12 @@ Module.prototype = {
 			throw new Error('Module :: component - ' + definition.selector + ' already defined');
 		}
 		this._components[id] = definition;
+		return this;
 	},
 
 	inject : function(key, obj) {
 		this._injector.add(key, obj);
+		return this;
 	},
 
 	bootstrap : function() {
@@ -76,6 +78,9 @@ Module.prototype = {
 				break  
 				case component.selector.substr(0,1) === '#' :
 					var element = document.getElementById(component.selector.substr(1));
+
+					console.log(element)
+
 					if(element) {
 						component.instances = [ctx.link(component, element)];
 					}
@@ -97,6 +102,10 @@ Module.prototype = {
 				callback.call();
 			})	
 		}
+
+		
+
+		return this;
 	},
 
 	run : function(callback) {
@@ -104,5 +113,6 @@ Module.prototype = {
 			this._runs = [];
 		}
 		this._runs.push(callback);
+		return this;
 	} 
 };
