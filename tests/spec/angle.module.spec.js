@@ -16,7 +16,7 @@ describe('Module', function() {
 
 		it('should create set name to constructor argument', function() {
 			app = new Module('app');
-			expect(app._name).toBe('app');
+			expect(app.name).toBe('app');
 		});
 
 		it('should throw error if no name argument is passed', function() {

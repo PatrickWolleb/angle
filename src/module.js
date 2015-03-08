@@ -11,7 +11,7 @@ var Module = function(name) {
 	} else if(typeof name !== 'string') {
 		throw new Error('Module :: constructor - Argument must be a string');
 	}
-	this._name = name;
+	this.name = name;
 	this._injector = new Injector();
 	this._components = {};
 	this._runs = [];
