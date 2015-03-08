@@ -1,5 +1,5 @@
 
-describe('injector', function() {
+describe('Injector', function() {
 
 	var injector;
 
