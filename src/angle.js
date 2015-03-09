@@ -22,7 +22,7 @@ var angle = (function() {
 		window.addEventListener('load', API.boot);			
 	}
 	
-	return API
+	return API;
 	
 })();
 

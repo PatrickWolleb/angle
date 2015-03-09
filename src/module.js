@@ -78,9 +78,6 @@ Module.prototype = {
 				break  
 				case component.selector.substr(0,1) === '#' :
 					var element = document.getElementById(component.selector.substr(1));
-
-					console.log(element)
-
 					if(element) {
 						component.instances = [ctx.link(component, element)];
 					}

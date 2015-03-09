@@ -168,20 +168,24 @@ describe('Module', function() {
 
 			var mocks = document.createElement('div');
 			mocks.setAttribute('id', 'mocks');
+			document.body.appendChild(mocks);
 
 			var el = document.createElement('div');
 			el.setAttribute('id', 'test');
 			el.setAttribute('class', 'test');
+			mocks.appendChild(el);
 
 			el = document.createElement('div');
 			el.setAttribute('class', 'test-multi');
+			mocks.appendChild(el);
 
 			el = document.createElement('div');
 			el.setAttribute('class', 'test-multi');
-
-			document.createElement('test');
-			document.createElement('test-multiple');
-			document.createElement('test-multiple');
+			mocks.appendChild(el);
+			
+			mocks.appendChild(document.createElement('test'));
+			mocks.appendChild(document.createElement('test-multiple'));
+			mocks.appendChild(document.createElement('test-multiple'));
 		});	
 
 		afterEach(function( ){
