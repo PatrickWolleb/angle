@@ -165,7 +165,30 @@ describe('Module', function() {
 			app = new Module('app');
 			component = { link : function(element) {} };
 			spyOn(component, 'link');
+
+			var mocks = document.createElement('div');
+			mocks.setAttribute('id', 'mocks');
+
+			var el = document.createElement('div');
+			el.setAttribute('id', 'test');
+			el.setAttribute('class', 'test');
+
+			el = document.createElement('div');
+			el.setAttribute('class', 'test-multi');
+
+			el = document.createElement('div');
+			el.setAttribute('class', 'test-multi');
+
+			document.createElement('test');
+			document.createElement('test-multiple');
+			document.createElement('test-multiple');
 		});	
+
+		afterEach(function( ){
+			var mocks = document.getElementById('mocks');
+			mocks.parentNode.removeChild(mocks);
+		});
+
 
 		it('should link a single #id component', function() {
 			component.selector = '#test';

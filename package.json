@@ -4,7 +4,7 @@
   "description": "angular-esque mini toolset for managing JS behaviours on non SPA pages ",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/karma/bin/karma start",
+    "test": "./node_modules/karma/bin/karma start tests/unit/karma.conf.js",
     "e2e" : "./node_modules/nightwatch/bin/nightwatch --test tests/e2e/**/*.test.js -c tests/e2e/nightwatch.json"
   },
   "repository": {
