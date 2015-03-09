@@ -4,7 +4,8 @@
   "description": "angular-esque mini toolset for managing JS behaviours on non SPA pages ",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/karma/bin/karma start"
+    "test": "./node_modules/karma/bin/karma start",
+    "e2e" : "./node_modules/nightwatch/bin/nightwatch --test tests/e2e/**/*.test.js -c tests/e2e/nightwatch.json"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
     "jasmine-core": "^2.2.0",
     "karma": "^0.12.31",
     "karma-chrome-launcher": "^0.1.7",
-    "karma-jasmine": "^0.3.5"
+    "karma-jasmine": "^0.3.5",
+    "nightwatch": "^0.5.36"
   }
 }
