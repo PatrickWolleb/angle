@@ -6,7 +6,8 @@
   "scripts": {
     "test": "./node_modules/karma/bin/karma start tests/unit/karma.conf.js",
     "webdriver": "java -jar tests/e2e/lib/selenium-server-standalone-2.45.0.jar",
-    "e2e": "./node_modules/nightwatch/bin/nightwatch --test tests/e2e/spec/*.spec.js -c tests/e2e/nightwatch.json"
+    "e2e": "./node_modules/nightwatch/bin/nightwatch --test tests/e2e/spec/*.spec.js -c tests/e2e/nightwatch.json",
+    "build": "./node_modules/gulp/bin/gulp.js"
   },
   "repository": {
     "type": "git",
@@ -23,11 +24,14 @@
   },
   "homepage": "https://github.com/PatrickWolleb/angle",
   "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-define-module": "^0.1.1",
     "jasmine-core": "^2.2.0",
     "karma": "^0.12.31",
     "karma-chrome-launcher": "^0.1.7",
     "karma-firefox-launcher": "^0.1.4",
     "karma-jasmine": "^0.3.5",
-    "nightwatch": "^0.5.36"
+    "nightwatch": "^0.5.36",
+    "uglify-js": "^2.4.16"
   }
 }
