@@ -3,9 +3,11 @@
 */
 
 
+var Injector = require('./injector.js');
 
 
-var Module = function(name) {
+
+module.exports = function(name) {
 	if(!name) {
 		throw new Error('Module :: constructor - Missing name argument');
 	} else if(typeof name !== 'string') {
@@ -18,7 +20,7 @@ var Module = function(name) {
 };
 
 
-Module.prototype = {
+module.exports.prototype = {
 
 	link : function (component, element) {
 		var ctx = this;

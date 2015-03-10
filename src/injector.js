@@ -47,3 +47,6 @@ Injector.getParamNames = function getParamNames(func) {
   }
   return result;
 };	
+
+
+module.exports = Injector;

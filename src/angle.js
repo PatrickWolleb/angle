@@ -2,11 +2,12 @@
 *	Author : patrick.wolleb@shmedia.co.uk
 */
 
-
+var Module = require('./module.js')
 
 var _modules = {};
 
-var API =  {
+var API = {
+	
 	module : function(key) {
 		return _modules[key] = _modules[key] || new Module(key);
 	},
@@ -16,6 +17,7 @@ var API =  {
 			_modules[key].bootstrap();
 		});
 	}
+
 };
 
 var autoBoot = window.ANGLE_AUTO_BOOT || true;
@@ -23,5 +25,6 @@ if(autoBoot) {
 	window.addEventListener('load', API.boot);			
 }
 
-return API;
+
+module.exports = API;
 	
