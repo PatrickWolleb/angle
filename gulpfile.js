@@ -9,10 +9,17 @@ gulp.task('default', function() {
  	
  	gulp.src('src/angle.js')
     .pipe(browserify({
-    	standalone : 'angle'
+    	standalone : 'angle',
     }))
-    //.pipe(uglify())
+    .pipe(uglify())
     .pipe(rename({suffix:'.min'}))
     .pipe(gulp.dest('./bin'));
 
 });
+
+
+gulp.task('watch', function() {
+
+	gulp.watch('src/*.js', ['default']);
+
+});	

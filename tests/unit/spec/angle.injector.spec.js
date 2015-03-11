@@ -1,3 +1,5 @@
+var Injector = require('../../src/injector.js');
+
 
 describe('Injector', function() {
 
